@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://yuanww.cn/2020/01/13/linux下安装和配置nginx/1578924273290.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/13/linux下安装和配置nginx/1578924348170.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/13/linux下安装和配置nginx/1578924474929.png">
-<meta property="og:updated_time" content="2020-01-13T14:20:39.123Z">
+<meta property="og:updated_time" content="2020-01-13T14:29:33.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下安装和配置nginx">
 <meta name="twitter:description" content="linux下安装和配nginx一 nginx简介​        Nginx同Apache一样都是一种WEB服务器。基于REST架构风格，以统一资源描述符(Uniform Resources Identifier)URI或者统一资源定位符(Uniform Resources Locator)URL作为沟通依据，通过HTTP协议提供各种网络服务。 ​        Nginx是一款自由的、开源的、高">
@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  660
+                  672
                 </span>
               
 
@@ -420,9 +420,9 @@
         <h1 id="linux下安装和配nginx"><a href="#linux下安装和配nginx" class="headerlink" title="linux下安装和配nginx"></a><strong>linux下安装和配nginx</strong></h1><h2 id="一-nginx简介"><a href="#一-nginx简介" class="headerlink" title="一 nginx简介"></a>一 nginx简介</h2><p>​        Nginx同Apache一样都是一种WEB服务器。基于REST架构风格，以统一资源描述符(Uniform Resources Identifier)URI或者统一资源定位符(Uniform Resources Locator)URL作为沟通依据，通过HTTP协议提供各种网络服务。</p>
 <p>​        Nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个IMAP、POP3、SMTP代理服务器；Nginx可以作为一个HTTP服务器进行网站的发布处理，另外Nginx可以作为反向代理进行负载均衡的实现。</p>
 <h2 id="二-下载与安装"><a href="#二-下载与安装" class="headerlink" title="二 下载与安装"></a>二 下载与安装</h2><p>在nginx官网下载压缩包 <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">下载地址</a></p>
+<p>也可以使用<code>wegt</code>命令直接下载压缩包 <code>wget http://nginx.org/download/nginx-1.14.2.tar.gz</code></p>
 <p><img src="/2020/01/13/linux下安装和配置nginx/1578921872649.png" alt="1578921872649"></p>
 <p>上传到服务器opt目录下</p>
-<p>也可以使用<code>wegt</code>命令直接下载压缩包 <code>wget http://nginx.org/download/nginx-1.14.2.tar.gz</code></p>
 <p><img src="/2020/01/13/linux下安装和配置nginx/1578922383347.png" alt="1578922383347"></p>
 <p>解压 </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 opt]# tar -zxvf nginx-1.14.2.tar.gz</span><br></pre></td></tr></table></figure>
@@ -459,6 +459,7 @@
 <p>配置nginx 开机启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@192 sbin]# vim /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/01/13/linux下安装和配置nginx/1578924474929.png" alt="1578924474929"></p>
+<p>###参考文献<br><a href="https://www.cnblogs.com/xxoome/p/5866475.html" target="_blank" rel="noopener">https://www.cnblogs.com/xxoome/p/5866475.html</a></p>
 
       
     </div>

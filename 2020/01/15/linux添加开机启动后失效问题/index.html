@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh">
+<meta name="description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
 <meta name="keywords" content="linux,bug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux添加开机启动后失效问题">
 <meta property="og:url" content="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh">
+<meta property="og:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T13:18:43.561Z">
+<meta property="og:updated_time" content="2020-01-15T14:35:14.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux添加开机启动后失效问题">
-<meta name="twitter:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh">
+<meta name="twitter:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
 
 
 
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  607
+                  577
                 </span>
               
 
@@ -411,10 +411,10 @@
 
       
         <h3 id="记一次linux添加开机启动后失效问题"><a href="#记一次linux添加开机启动后失效问题" class="headerlink" title="记一次linux添加开机启动后失效问题"></a>记一次linux添加开机启动后失效问题</h3><p>今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中，</p>
-<p>今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中，</p>
 <p>于是输入命令 <code>vim /etc/rc.local</code> 在最后一行添加 <code>/opt/zookeeper-3.4.14/bin/zkServer.sh start</code></p>
 <p>然后 <code>reboot</code> 重启</p>
 <p>重启之后 输入命令<code>zkServer.sh stats</code>发现 zookeeper并没有启动</p>
+<a id="more"></a>
 <p>然后我查看之前添加到开机自启的服务tomcat和nginx也没有启动成功 在添加zookeeper之前是没有问题的</p>
 <p>怎么回事呢 于是我去百度搜索 linux、rc.loacl、开机自启失败等有关文章之后 </p>
 <p>发现大部分文章都在说开机自启失败是因为<code>/etc/rc.loacl</code>没有权限 </p>
@@ -452,7 +452,7 @@
   <p><span>本文标题:</span><a href="/2020/01/15/linux添加开机启动后失效问题/">linux添加开机启动后失效问题</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
   <p><span>发布时间:</span>2020年01月15日 - 21:01</p>
-  <p><span>最后更新:</span>2020年01月15日 - 21:01</p>
+  <p><span>最后更新:</span>2020年01月15日 - 22:01</p>
   <p><span>原始链接:</span><a href="/2020/01/15/linux添加开机启动后失效问题/" title="linux添加开机启动后失效问题">http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/" aria-label="复制成功！"></i></span>
   </p>

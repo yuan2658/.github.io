@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="java,dubbo,">
+  <meta name="keywords" content="dubbo,java,">
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="一 dubbo是什么在介绍dubbo之前先了解一些概念，soa和rpc soa的简单介绍Service-Oriented Architecture（SOA）面向服务架构 ​        面向服务的架构（SOA）是一个组件模型，它将应用程序的不同功能单元（称为服务）进行拆分，并通过这些服务之间定义良好的接口和协议联系起来。接口是采用中立的方式进行定义的，它应该独立于实现服务的硬件平台、操作系统和编">
-<meta name="keywords" content="java,dubbo">
+<meta name="keywords" content="dubbo,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="dubbo系列(一 dubbo简介)">
 <meta property="og:url" content="http://yuanww.cn/2020/01/07/dubbo系列-一/index.html">
@@ -360,6 +360,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/07/dubbo系列-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/dubbo系列-一/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -636,9 +646,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
             <a href="/tags/dubbo/" rel="tag"><i class="fa fa-tag"></i> dubbo</a>
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
         </div>
       
@@ -730,6 +740,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -1099,6 +1112,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'x7eMnnknw8DLXiaQHKGDXYth-gzGzoHsz',
+        appKey: 'Vj1vJImPLhxvGJIpsiDppAGm',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="linux,FastDFS,">
+  <meta name="keywords" content="FastDFS,linux,">
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="FastDFS环境搭建简介FastDFS定义FastDFS是用 C 语言编写的一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。 FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用Fa">
-<meta name="keywords" content="linux,FastDFS">
+<meta name="keywords" content="FastDFS,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FastDFS环境搭建">
 <meta property="og:url" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/index.html">
@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/fastdfs安装.gif">
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/1580358840631.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/1580361401375.png">
-<meta property="og:updated_time" content="2020-01-30T05:50:01.592Z">
+<meta property="og:updated_time" content="2020-01-30T05:56:02.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FastDFS环境搭建">
 <meta name="twitter:description" content="FastDFS环境搭建简介FastDFS定义FastDFS是用 C 语言编写的一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。 FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用Fa">
@@ -436,8 +436,8 @@
       
         <h1 id="FastDFS环境搭建"><a href="#FastDFS环境搭建" class="headerlink" title="FastDFS环境搭建"></a>FastDFS环境搭建</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="FastDFS定义"><a href="#FastDFS定义" class="headerlink" title="FastDFS定义"></a>FastDFS定义</h3><p>FastDFS是用 C 语言编写的一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。</p>
 <p>FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用FastDFS很容易搭建一套高性能的文件服务器集群提供文件上传、下载等服务。</p>
-<h3 id="FastDFS架构"><a href="#FastDFS架构" class="headerlink" title="FastDFS架构"></a>FastDFS架构</h3><p><img src="/2020/01/26/FastDFS环境搭建/fastdfs-01.png" alt> </p>
-<p>FastDFS 服务端主要有两个角色：跟踪器（Tracker）和存储节点（Storage）。客户端请求 Tracker 进行文件上传、下载，通过 Tracker 调度最终由 Storage 完成文件上传和下载。</p>
+<a id="more"></a> 
+<h3 id="FastDFS架构"><a href="#FastDFS架构" class="headerlink" title="FastDFS架构"></a>FastDFS架构</h3><p><img src="/2020/01/26/FastDFS环境搭建/fastdfs-01.png" alt><br>FastDFS 服务端主要有两个角色：跟踪器（Tracker）和存储节点（Storage）。客户端请求 Tracker 进行文件上传、下载，通过 Tracker 调度最终由 Storage 完成文件上传和下载。</p>
 <p>Tracker 作用是负载均衡和调度，通过 Tracker 在文件上传时可以根据一些策略找到 Storage 提供文件上传服务。</p>
 <p>Storage 作用是文件存储，客户端上传的文件最终存储在 Storage 服务器上，Storage 没有实现自己的文件系统而是利用操作系统 的文件系统来管理文件。</p>
 <p>跟踪器和存储节点都可以由一台或多台服务器构成。跟踪器和存储节点中的服务器均可以随时增加或下线而不会影响线上服务。其中跟踪器中的所有服务器都是对等的，可以根据服务器的压力情况随时增加或减少。</p>
@@ -447,7 +447,7 @@
 </blockquote>
 <h3 id="安装-libfastcommon"><a href="#安装-libfastcommon" class="headerlink" title="安装 libfastcommon"></a>安装 libfastcommon</h3><p>libfastcommon 是 FastDFS 官方提供的，其包含了 FastDFS 运行所需要的一些基础库。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]# git clone https://github.com/happyfish100/libfastcommon.git</span><br><span class="line"></span><br><span class="line">[root@localhost opt]# cd libfastcommon/</span><br><span class="line">    </span><br><span class="line">[root@localhost libfastcommon]# ./make.sh </span><br><span class="line"></span><br><span class="line">[root@localhost libfastcommon]# ./make.sh install</span><br><span class="line"></span><br><span class="line">[root@localhost libfastcommon]#</span><br></pre></td></tr></table></figure>
-<h3 id="安装-FastDFS"><a href="#安装-FastDFS" class="headerlink" title="安装 FastDFS"></a>安装 FastDFS</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost opt]# git clone https://github.com/happyfish100/fastdfs.git</span><br><span class="line"></span><br><span class="line">[root@localhost opt]# cd fastdfs/</span><br><span class="line">    </span><br><span class="line">[root@localhost fastdfs]# ./make.sh </span><br><span class="line"></span><br><span class="line">[root@localhost fastdfs]# ./make.sh install</span><br><span class="line"></span><br><span class="line">[root@localhost fastdfs]#</span><br></pre></td></tr></table></figure>
+<h3 id="安装-FastDFS"><a href="#安装-FastDFS" class="headerlink" title="安装 FastDFS"></a>安装 FastDFS</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]# git clone https://github.com/happyfish100/fastdfs.git</span><br><span class="line"></span><br><span class="line">[root@localhost opt]# cd fastdfs/</span><br><span class="line">    </span><br><span class="line">[root@localhost fastdfs]# ./make.sh </span><br><span class="line"></span><br><span class="line">[root@localhost fastdfs]# ./make.sh install</span><br><span class="line"></span><br><span class="line">[root@localhost fastdfs]#</span><br></pre></td></tr></table></figure>
 <p><img src="/2020/01/26/FastDFS环境搭建/fastdfs安装.gif" alt></p>
 <p>安装 FastDFS 成功后，将安装目录下的conf下的文件拷贝到/etc/fdfs/下</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost fastdfs]# cd conf</span><br><span class="line"></span><br><span class="line">[root@localhost conf]# cp  *  /etc/fdfs/</span><br></pre></td></tr></table></figure>
@@ -469,16 +469,15 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]#  ps -ef | grep storage</span><br><span class="line">root       <span class="number">6109</span>      <span class="number">1</span> <span class="number">60</span> <span class="number">12</span>:<span class="number">48</span> ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">04</span> /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start</span><br><span class="line">root       <span class="number">6119</span>   <span class="number">5125</span>  <span class="number">0</span> <span class="number">12</span>:<span class="number">48</span> pts/<span class="number">0</span>    <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> grep --color=auto storage</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
-<p>tracker、storage加入开机启动<br>编辑文件 <code>vim /etc/rc.d/rc.local</code><br>在最后一行加入</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; /usr/bin/fdfs_trackerd  /etc/fdfs/tracker.conf start</span><br><span class="line">&gt; /usr/bin/fdfs_storaged  /etc/fdfs/storage.conf start</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>tracker、storage加入开机启动<br>编辑文件 <code>vim /etc/rc.d/rc.local</code><br>在最后一行加入<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/fdfs_trackerd  /etc/fdfs/tracker.conf start</span><br><span class="line">/usr/bin/fdfs_storaged  /etc/fdfs/storage.conf start</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="配置-client"><a href="#配置-client" class="headerlink" title="配置 client"></a>配置 client</h3><p><strong>此步骤的配置是为了测试</strong></p>
 <p>修改 client.conf 文件：<code>vim /etc/fdfs/client.conf</code></p>
-<figure class="highlight plain"><figcaption><span>client.conf 文件：vim</span><a href="/etc/fdfs/client.conf">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">base_path=/data/fastdfs/client</span><br><span class="line"></span><br><span class="line">tracker_server=192.168.130.130:22122</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">base_path=/data/fastdfs/client</span><br><span class="line"></span><br><span class="line">tracker_server=<span class="number">192.168</span>.130.130:<span class="number">22122</span></span><br></pre></td></tr></table></figure>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>准备一张测试图片 test.jpg 上传到/root目录下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls test.jpg </span><br><span class="line">test.jpg</span><br><span class="line">[root@localhost ~]# pwd</span><br><span class="line">/root</span><br></pre></td></tr></table></figure>
 <p>通过 fdfs 命令上传该图片：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/fdfs_test /etc/fdfs/client.conf upload /root/test.jpg</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/fdfs_test /etc/fdfs/client.conf upload /root/test.jpg</span><br></pre></td></tr></table></figure>
 <p>最终，图片会被上传到 <code>/data/fastdfs/storage/data/</code> 目录中。</p>
 <p>运行结果如下图：</p>
 <p><img src="/2020/01/26/FastDFS环境搭建/1580361401375.png" alt="1580361401375"></p>
@@ -548,9 +547,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
-          
             <a href="/tags/FastDFS/" rel="tag"><i class="fa fa-tag"></i> FastDFS</a>
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           
         </div>
       
@@ -572,6 +571,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/30/Nginx整合FastDFS/" rel="prev" title="Nginx整合FastDFS">
+                Nginx整合FastDFS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -691,7 +694,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -823,7 +826,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">10.9k</span>
+    <span title="站点字数总计">11.4k</span>
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <span class="post-meta-divider">|</span>

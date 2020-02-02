@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="nginx,FastDFS,">
+  <meta name="keywords" content="FastDFS,nginx,">
 
 
 
@@ -96,23 +96,23 @@
 
 
 
-<meta name="description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。 安装下载 fastdfs-nginx-moduleNginx 整合 FastDFS 需要依赖 fastdfs-nginx-module 模块，我们需要将其下载下来。">
-<meta name="keywords" content="nginx,FastDFS">
+<meta name="description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。">
+<meta name="keywords" content="FastDFS,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx整合FastDFS">
 <meta property="og:url" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。 安装下载 fastdfs-nginx-moduleNginx 整合 FastDFS 需要依赖 fastdfs-nginx-module 模块，我们需要将其下载下来。">
+<meta property="og:description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580556609509.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580556737455.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580557564847.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580560900329.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580560932580.png">
-<meta property="og:updated_time" content="2020-02-01T13:17:50.620Z">
+<meta property="og:updated_time" content="2020-02-01T13:18:47.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx整合FastDFS">
-<meta name="twitter:description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。 安装下载 fastdfs-nginx-moduleNginx 整合 FastDFS 需要依赖 fastdfs-nginx-module 模块，我们需要将其下载下来。">
+<meta name="twitter:description" content="Nginx整合FastDFS前言本篇衔接《FastDFS 环境搭建》内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。 建议读者先浏览《FastDFS 环境搭建》再继续浏览本篇文章。">
 <meta name="twitter:image" content="http://yuanww.cn/2020/01/30/Nginx整合FastDFS/1580556609509.png">
 
 
@@ -437,6 +437,7 @@
       
         <h1 id="Nginx整合FastDFS"><a href="#Nginx整合FastDFS" class="headerlink" title="Nginx整合FastDFS"></a>Nginx整合FastDFS</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇衔接<a href="https://blog.yuanww.cn/2020/01/26/FastDFS%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_blank" rel="noopener">《FastDFS 环境搭建》</a>内容进行讲解，上篇文章我们实现了图片上传的功能，但是无法通过 http 进行访问，本篇将解决该问题。</p>
 <p><strong>建议读者先浏览<a href="https://blog.yuanww.cn/2020/01/26/FastDFS%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" target="_blank" rel="noopener">《FastDFS 环境搭建》</a>再继续浏览本篇文章。</strong></p>
+<a id="more"></a> 
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载-fastdfs-nginx-module"><a href="#下载-fastdfs-nginx-module" class="headerlink" title="下载 fastdfs-nginx-module"></a>下载 fastdfs-nginx-module</h3><p>Nginx 整合 FastDFS 需要依赖 fastdfs-nginx-module 模块，我们需要将其下载下来。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost opt]# git clone https://github.com/happyfish100/fastdfs-nginx-module.git</span><br><span class="line"></span><br><span class="line">[root@localhost fastdfs-nginx-module]# pwd</span><br><span class="line">/opt/fastdfs-nginx-module</span><br></pre></td></tr></table></figure>
 <h3 id="安装-nginx-fastdfs-nginx-module"><a href="#安装-nginx-fastdfs-nginx-module" class="headerlink" title="安装 nginx/fastdfs-nginx-module"></a>安装 nginx/fastdfs-nginx-module</h3><p>笔者已经安装 nginx，具体操作可以访问 <a href="[https://blog.yuanww.cn/2020/01/13/linux%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AEnginx/](https://blog.yuanww.cn/2020/01/13/linux下安装和配置nginx/">《linux下安装和配置nginx》</a>)。</p>
@@ -527,9 +528,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
-          
             <a href="/tags/FastDFS/" rel="tag"><i class="fa fa-tag"></i> FastDFS</a>
+          
+            <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
           
         </div>
       
@@ -551,6 +552,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/01/SpringBoot整合FastsDFS/" rel="prev" title="SpringBoot整合FastsDFS">
+                SpringBoot整合FastsDFS <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -670,7 +675,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -802,7 +807,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">11.4k</span>
+    <span title="站点字数总计">12.4k</span>
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <span class="post-meta-divider">|</span>

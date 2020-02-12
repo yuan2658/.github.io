@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="linux,bug,">
+  <meta name="keywords" content="redis,">
 
 
 
@@ -96,18 +96,24 @@
 
 
 
-<meta name="description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
-<meta name="keywords" content="linux,bug">
+<meta name="description" content="Redis的安装和配置简介 redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
+<meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux添加开机启动后失效问题">
-<meta property="og:url" content="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/index.html">
+<meta property="og:title" content="redis系列(一 redis的安装和配置)">
+<meta property="og:url" content="http://yuanww.cn/2020/02/07/redis系列-一/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
+<meta property="og:description" content="Redis的安装和配置简介 redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T14:35:14.827Z">
+<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/redis.jpg">
+<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581431911939.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581432521312.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581433613681.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581433802658.png">
+<meta property="og:updated_time" content="2020-02-12T00:08:27.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux添加开机启动后失效问题">
-<meta name="twitter:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
+<meta name="twitter:title" content="redis系列(一 redis的安装和配置)">
+<meta name="twitter:description" content="Redis的安装和配置简介 redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
+<meta name="twitter:image" content="http://yuanww.cn/2020/02/07/redis系列-一/redis.jpg">
 
 
 
@@ -137,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/">
+  <link rel="canonical" href="http://yuanww.cn/2020/02/07/redis系列-一/">
 
 
 
 
 
-  <title>linux添加开机启动后失效问题 | WhiteWater</title>
+  <title>redis系列(一 redis的安装和配置) | WhiteWater</title>
   
 
 
@@ -290,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/">
+    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/02/07/redis系列-一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ctrl">
@@ -307,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux添加开机启动后失效问题</h1>
+          <h1 class="post-title" itemprop="name headline">redis系列(一 redis的安装和配置)</h1>
         
 
         <div class="post-meta">
@@ -319,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-15T21:17:48+08:00">
-                2020-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T22:30:37+08:00">
+                2020-02-07
               </time>
             
 
@@ -342,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/bug/" itemprop="url" rel="index">
-                    <span itemprop="name">bug</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -360,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/15/linux添加开机启动后失效问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/15/linux添加开机启动后失效问题/" itemprop="commentCount"></span>
+                <a href="/2020/02/07/redis系列-一/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/07/redis系列-一/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,7 +375,7 @@
 
           
           
-             <span id="/2020/01/15/linux添加开机启动后失效问题/" class="leancloud_visitors" data-flag-title="linux添加开机启动后失效问题">
+             <span id="/2020/02/07/redis系列-一/" class="leancloud_visitors" data-flag-title="redis系列(一 redis的安装和配置)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -392,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  577
+                  740
                 </span>
               
 
@@ -408,7 +414,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -429,30 +435,53 @@
       
 
       
-        <h3 id="记一次linux添加开机启动后失效问题"><a href="#记一次linux添加开机启动后失效问题" class="headerlink" title="记一次linux添加开机启动后失效问题"></a>记一次linux添加开机启动后失效问题</h3><p>今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中，</p>
-<p>于是输入命令 <code>vim /etc/rc.local</code> 在最后一行添加 <code>/opt/zookeeper-3.4.14/bin/zkServer.sh start</code></p>
-<p>然后 <code>reboot</code> 重启</p>
-<p>重启之后 输入命令<code>zkServer.sh stats</code>发现 zookeeper并没有启动</p>
+        <h1 id="Redis的安装和配置"><a href="#Redis的安装和配置" class="headerlink" title="Redis的安装和配置"></a>Redis的安装和配置</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><img src="/2020/02/07/redis系列-一/redis.jpg" alt></p>
+<h3 id="redis简介"><a href="#redis简介" class="headerlink" title="redis简介"></a>redis简介</h3><p>REmote DIctionary Server(<strong>Redis</strong>) 是一个由Salvatore Sanfilippo写的key-value存储系统。</p>
+<p>Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
+<p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
 <a id="more"></a>
-<p>然后我查看之前添加到开机自启的服务tomcat和nginx也没有启动成功 在添加zookeeper之前是没有问题的</p>
-<p>怎么回事呢 于是我去百度搜索 linux、rc.loacl、开机自启失败等有关文章之后 </p>
-<p>发现大部分文章都在说开机自启失败是因为<code>/etc/rc.loacl</code>没有权限 </p>
-<p>查看/etc/rc.loacl权限 正常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /etc/rc.local</span><br><span class="line">lrwxrwxrwx. 1 root root 13 1月  10 09:28 /etc/rc.local -&gt; rc.d/rc.local</span><br></pre></td></tr></table></figure></p>
-<p>查看/etc/rc.d/rc.local权限 正常</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /etc/rc.d/rc.local</span><br><span class="line">-rwxrwxrwx. 1 root root 652 1月  15 14:48 /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
-<p>我这个应该不是权限问题</p>
-<p>于是我去查看开机启动日志  <code>/var/log/message</code> 发现了报错日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localhost systemd: Failed at step EXEC spawning /etc/rc.d/rc.local: Exec format error</span><br><span class="line">localhost systemd: rc-local.service: control process exited, code=exited status=203</span><br><span class="line">localhost systemd: Failed to start /etc/rc.d/rc.local Compatibility.</span><br><span class="line">localhost systemd: Unit rc-local.service entered failed state.</span><br><span class="line">localhost systemd: rc-local.service failed.</span><br></pre></td></tr></table></figure></p>
-<p>这里说 执行/etc/rc.d/rc.时出错 Exec格式错误  应该就是rc.local文件的问题 并且还说明了错误码</p>
-<p>我接着去搜索 <code>code=exited status=203</code></p>
-<p>发现原因： systemctl执行脚本时需要知道脚本的解释器</p>
-<p>这有是关于linux运行脚本的知识了 大概了解一下</p>
-<p>#!/bin/bash是指此脚本使用/bin/bash来解释执行。 每个脚本开头都必须使用”#!”</p>
-<p>于是重新 <code>vim /etc/rc.local</code>突然发现了问题所在</p>
-<p>第一行居然是空行（emmm，可能是我在编辑的时候多按了一下回车吧 ）</p>
-<p>把第一行删除   #!/bin/bash 作为首行 然后保存退出 重启</p>
-<p>输入 <code>zkServer.sh stats</code>发现启动成功 查看tomcat nginx 进程启动成功</p>
-<p>ok 问题解决完毕！</p>
-<p>因为一个空行引发的惨案  还是对linux的不熟悉导致的 太难了 还得多学习学习</p>
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+</ul>
+<h3 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h3><ul>
+<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
+<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
+<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
+<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weget http:<span class="comment">//download.redis.io/releases/redis-5.0.4.tar.gz</span></span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -vzxf redis-<span class="number">5.0</span>.4.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="编译、安装"><a href="#编译、安装" class="headerlink" title="编译、安装"></a>编译、安装</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd redis-<span class="number">5.0</span>.4</span><br><span class="line">    </span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/07/redis系列-一/1581431911939.png" alt="1581431911939"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装成功后，下面对Redis 进行部署</p>
+<h3 id="移动配置文件"><a href="#移动配置文件" class="headerlink" title="移动配置文件"></a>移动配置文件</h3><p> <strong>为了方便管理，将Redis文件中的conf配置文件和常用命令移动到统一文件中</strong></p>
+<p>1）、创建bin和etc文件夹</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/redis</span><br><span class="line">mkdir /usr/local/redis/etc</span><br><span class="line">mkdir /usr/local/redis/bin</span><br></pre></td></tr></table></figure>
+<p>2）、移动配置文件</p>
+<p>在安装目录下移动redis,conf到/usr/local/redis/etc 下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv redis.conf /usr/local/redis/etc/</span><br></pre></td></tr></table></figure>
+<p>在安装目录下进入src目录 ，移动mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-server到/usr/local/redis/bin/</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-server /usr/local/redis/bin/</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/07/redis系列-一/1581432521312.png" alt="1581432521312"></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>进入 <code>/usr/local/redis/etc</code> 目录下执行  <code>vim redis.conf</code></p>
+<p>需要注意修改的几个参数：</p>
+<ol>
+<li>bind 127.0.0.1 （ 绑定的主机地址 如需要可以改为指定ip 我通常注释掉）</li>
+<li>daemonize （属性改为yes 表明需要在后台运行）</li>
+<li>requirepass foobared （去掉注释，foobared改为自己的密码）</li>
+<li>protected-mode  （默认是yes，改为no 外部网络可以直接访问）</li>
+</ol>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>进入 /usr/local/redis/bin 目录 指定启动服务配置文件启动服务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  /usr/local/redis/bin</span><br><span class="line">./redis-server /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/07/redis系列-一/1581433613681.png" alt="1581433613681"></p>
+<p>查看进程 启动成功</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>连接redis  连接命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="number">192.168</span>.130.130 -p <span class="number">6379</span> </span><br><span class="line">    </span><br><span class="line">auth myreds  #输入密码 myredis是在conf配置的密码</span><br><span class="line"></span><br><span class="line">ping #检测是否连接成功</span><br><span class="line"></span><br><span class="line">keys * #查看所有数据</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/07/redis系列-一/1581433802658.png" alt="1581433802658"></p>
+<p><strong>redis安装成功!</strong></p>
 
       
     </div>
@@ -468,12 +497,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/01/15/linux添加开机启动后失效问题/">linux添加开机启动后失效问题</a></p>
+  <p><span>本文标题:</span><a href="/2020/02/07/redis系列-一/">redis系列(一 redis的安装和配置)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
-  <p><span>发布时间:</span>2020年01月15日 - 21:01</p>
-  <p><span>最后更新:</span>2020年01月15日 - 22:01</p>
-  <p><span>原始链接:</span><a href="/2020/01/15/linux添加开机启动后失效问题/" title="linux添加开机启动后失效问题">http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年02月07日 - 22:02</p>
+  <p><span>最后更新:</span>2020年02月12日 - 08:02</p>
+  <p><span>原始链接:</span><a href="/2020/02/07/redis系列-一/" title="redis系列(一 redis的安装和配置)">http://yuanww.cn/2020/02/07/redis系列-一/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/02/07/redis系列-一/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
 </div>
@@ -517,9 +546,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
-          
-            <a href="/tags/bug/" rel="tag"><i class="fa fa-tag"></i> bug</a>
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
           
         </div>
       
@@ -532,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/15/linux下安装和配置zookeeper/" rel="next" title="linux下安装和配置zookeeper">
-                <i class="fa fa-chevron-left"></i> linux下安装和配置zookeeper
+              <a href="/2020/02/01/SpringBoot整合FastsDFS/" rel="next" title="SpringBoot整合FastsDFS">
+                <i class="fa fa-chevron-left"></i> SpringBoot整合FastsDFS
               </a>
             
           </div>
@@ -541,10 +568,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/19/dubbo系列-三/" rel="prev" title="dubbo系列(三 springboot整合dubbo)">
-                dubbo系列(三 springboot整合dubbo) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -762,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#记一次linux添加开机启动后失效问题"><span class="nav-number">1.</span> <span class="nav-text">记一次linux添加开机启动后失效问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis的安装和配置"><span class="nav-number">1.</span> <span class="nav-text">Redis的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">redis简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-优势"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redis 优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">1.2.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译、安装"><span class="nav-number">1.2.3.</span> <span class="nav-text">编译、安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动配置文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">移动配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.3.3.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.4.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
             
 
           </div>

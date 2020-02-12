@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/fastdfs安装.gif">
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/1580358840631.png">
 <meta property="og:image" content="http://yuanww.cn/2020/01/26/FastDFS环境搭建/1580361401375.png">
-<meta property="og:updated_time" content="2020-01-30T05:56:02.723Z">
+<meta property="og:updated_time" content="2020-02-06T11:43:44.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FastDFS环境搭建">
 <meta name="twitter:description" content="FastDFS环境搭建简介FastDFS定义FastDFS是用 C 语言编写的一个开源的轻量级分布式文件系统，它对文件进行管理，功能包括：文件存储、文件同步、文件访问（文件上传、文件下载）等，解决了大容量存储和负载均衡的问题。特别适合以文件为载体的在线服务，如相册网站、视频网站等等。 FastDFS为互联网量身定制，充分考虑了冗余备份、负载均衡、线性扩容等机制，并注重高可用、高性能等指标，使用Fa">
@@ -461,7 +461,7 @@
 <p>检测启动情况：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# ps -ef | grep tracker</span><br><span class="line">root       <span class="number">6069</span>      <span class="number">1</span>  <span class="number">0</span> <span class="number">12</span>:<span class="number">39</span> ?        <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start</span><br><span class="line">root       <span class="number">6077</span>   <span class="number">5125</span>  <span class="number">0</span> <span class="number">12</span>:<span class="number">39</span> pts/<span class="number">0</span>    <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> grep --color=auto tracker</span><br></pre></td></tr></table></figure>
 <h3 id="配置-Storage"><a href="#配置-Storage" class="headerlink" title="配置 Storage"></a>配置 Storage</h3><p>修改 storage.conf 文件：<code>vim /etc/fdfs/storage.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">port=23000</span><br><span class="line"></span><br><span class="line">base_path=/data/fastdfs/storage</span><br><span class="line"></span><br><span class="line">store_path0=/data/fastdfs/storage</span><br><span class="line"></span><br><span class="line">tracker_server=192.168.130.130:22122</span><br><span class="line"></span><br><span class="line">group_name=light</span><br><span class="line"></span><br><span class="line">http.server_port=80</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">port=23000</span><br><span class="line"></span><br><span class="line">base_path=/data/fastdfs/storage</span><br><span class="line"></span><br><span class="line">store_path0=/data/fastdfs/storage</span><br><span class="line"></span><br><span class="line">tracker_server=192.168.130.130:22122</span><br><span class="line"></span><br><span class="line">http.server_port=80</span><br></pre></td></tr></table></figure>
 <p><strong>注意：tracker_server 中，ip 为本机 ip，端口为 tracker.conf 中设置的值</strong></p>
 <p>启动 Storage Server 服务：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost conf]# /usr/bin/fdfs_storaged  /etc/fdfs/storage.conf start</span><br></pre></td></tr></table></figure>
@@ -501,7 +501,7 @@
   <p><span>本文标题:</span><a href="/2020/01/26/FastDFS环境搭建/">FastDFS环境搭建</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
   <p><span>发布时间:</span>2020年01月26日 - 19:01</p>
-  <p><span>最后更新:</span>2020年01月30日 - 13:01</p>
+  <p><span>最后更新:</span>2020年02月06日 - 19:02</p>
   <p><span>原始链接:</span><a href="/2020/01/26/FastDFS环境搭建/" title="FastDFS环境搭建">http://yuanww.cn/2020/01/26/FastDFS环境搭建/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/01/26/FastDFS环境搭建/" aria-label="复制成功！"></i></span>
   </p>
@@ -694,7 +694,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -705,7 +705,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -716,7 +716,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -826,7 +826,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">12.4k</span>
+    <span title="站点字数总计">13.1k</span>
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <span class="post-meta-divider">|</span>

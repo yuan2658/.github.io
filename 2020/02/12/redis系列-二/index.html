@@ -96,24 +96,22 @@
 
 
 
-<meta name="description" content="Redis的安装和配置 简介redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
+<meta name="description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis系列(一 redis的安装和配置)">
-<meta property="og:url" content="http://yuanww.cn/2020/02/07/redis系列-一/index.html">
+<meta property="og:title" content="redis系列(二 springboot整合redis)">
+<meta property="og:url" content="http://yuanww.cn/2020/02/12/redis系列-二/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="Redis的安装和配置 简介redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
+<meta property="og:description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/redis.jpg">
-<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581431911939.png">
-<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581432521312.png">
-<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581433613681.png">
-<meta property="og:image" content="http://yuanww.cn/2020/02/07/redis系列-一/1581433802658.png">
-<meta property="og:updated_time" content="2020-02-13T13:26:25.328Z">
+<meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/redis.jpg">
+<meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/1581601590779.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/1581601642219.png">
+<meta property="og:updated_time" content="2020-02-13T13:54:17.224Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis系列(一 redis的安装和配置)">
-<meta name="twitter:description" content="Redis的安装和配置 简介redis简介REmote DIctionary Server(Redis) 是一个由Salvatore Sanfilippo写的key-value存储系统。 Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。 Redis 是完全开源免费的，遵守BSD协议，是一个高性">
-<meta name="twitter:image" content="http://yuanww.cn/2020/02/07/redis系列-一/redis.jpg">
+<meta name="twitter:title" content="redis系列(二 springboot整合redis)">
+<meta name="twitter:description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
+<meta name="twitter:image" content="http://yuanww.cn/2020/02/12/redis系列-二/redis.jpg">
 
 
 
@@ -143,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://yuanww.cn/2020/02/07/redis系列-一/">
+  <link rel="canonical" href="http://yuanww.cn/2020/02/12/redis系列-二/">
 
 
 
 
 
-  <title>redis系列(一 redis的安装和配置) | WhiteWater</title>
+  <title>redis系列(二 springboot整合redis) | WhiteWater</title>
   
 
 
@@ -296,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/02/07/redis系列-一/">
+    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/02/12/redis系列-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ctrl">
@@ -313,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">redis系列(一 redis的安装和配置)</h1>
+          <h1 class="post-title" itemprop="name headline">redis系列(二 springboot整合redis)</h1>
         
 
         <div class="post-meta">
@@ -325,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T22:30:37+08:00">
-                2020-02-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-12T20:21:06+08:00">
+                2020-02-12
               </time>
             
 
@@ -366,8 +364,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/07/redis系列-一/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/07/redis系列-一/" itemprop="commentCount"></span>
+                <a href="/2020/02/12/redis系列-二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/12/redis系列-二/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,7 +373,7 @@
 
           
           
-             <span id="/2020/02/07/redis系列-一/" class="leancloud_visitors" data-flag-title="redis系列(一 redis的安装和配置)">
+             <span id="/2020/02/12/redis系列-二/" class="leancloud_visitors" data-flag-title="redis系列(二 springboot整合redis)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  771
+                  825
                 </span>
               
 
@@ -414,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -435,58 +433,19 @@
       
 
       
-        <h1 id="Redis的安装和配置"><a href="#Redis的安装和配置" class="headerlink" title="Redis的安装和配置"></a>Redis的安装和配置</h1><p><img src="/2020/02/07/redis系列-一/redis.jpg" alt></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="redis简介"><a href="#redis简介" class="headerlink" title="redis简介"></a>redis简介</h3><p>REmote DIctionary Server(<strong>Redis</strong>) 是一个由Salvatore Sanfilippo写的key-value存储系统。</p>
-<p>Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
-<p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
-<a id="more"></a>
-<p>Redis 与其他 key - value 缓存产品有以下三个特点：</p>
-<ul>
-<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
-<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
-<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
-</ul>
-<h3 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h3><ul>
-<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
-<li>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。</li>
-<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</li>
-<li>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weget http:<span class="comment">//download.redis.io/releases/redis-5.0.4.tar.gz</span></span><br></pre></td></tr></table></figure>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -vzxf redis-<span class="number">5.0</span>.4.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="编译、安装"><a href="#编译、安装" class="headerlink" title="编译、安装"></a>编译、安装</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd redis-<span class="number">5.0</span>.4</span><br><span class="line">    </span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/02/07/redis系列-一/1581431911939.png" alt="1581431911939"></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装成功后，下面对Redis 进行部署</p>
-<h3 id="移动配置文件"><a href="#移动配置文件" class="headerlink" title="移动配置文件"></a>移动配置文件</h3><p> <strong>为了方便管理，将Redis文件中的conf配置文件和常用命令移动到统一文件中</strong></p>
-<p>1）、创建bin和etc文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/redis</span><br><span class="line">mkdir /usr/local/redis/etc</span><br><span class="line">mkdir /usr/local/redis/bin</span><br></pre></td></tr></table></figure>
-<p>2）、移动配置文件</p>
-<p>在安装目录下移动redis,conf到/usr/local/redis/etc 下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv redis.conf /usr/local/redis/etc/</span><br></pre></td></tr></table></figure>
-<p>在安装目录下进入src目录 ，移动mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-server到/usr/local/redis/bin/</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-rdb redis-cli redis-server /usr/local/redis/bin/</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/02/07/redis系列-一/1581432521312.png" alt="1581432521312"></p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>进入 <code>/usr/local/redis/etc</code> 目录下执行  <code>vim redis.conf</code></p>
-<p>需要注意修改的几个参数：</p>
-<ol>
-<li>bind 127.0.0.1 （ 绑定的主机地址 如需要可以改为指定ip 我通常注释掉）</li>
-<li>daemonize （属性改为yes 表明需要在后台运行）</li>
-<li>requirepass foobared （去掉注释，foobared改为自己的密码）</li>
-<li>protected-mode  （默认是yes，改为no 外部网络可以直接访问）</li>
-</ol>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>进入 /usr/local/redis/bin 目录 指定启动服务配置文件启动服务</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd  /usr/local/redis/bin</span><br><span class="line">./redis-server /usr/local/redis/etc/redis.conf</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/02/07/redis系列-一/1581433613681.png" alt="1581433613681"></p>
-<p>查看进程 启动成功</p>
-<blockquote>
-<p>加入开机启动   编辑配置文件</p>
-<p><code>vim  /etc/rc.local</code> </p>
-<p>在最后一行添加 <code>redis-server  /usr/local/redis/etc/redis.conf</code></p>
-</blockquote>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>连接redis  连接命令</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="number">192.168</span>.130.130 -p <span class="number">6379</span> </span><br><span class="line">    </span><br><span class="line">auth myreds  #输入密码 myredis是在conf配置的密码</span><br><span class="line"></span><br><span class="line">ping #检测是否连接成功</span><br><span class="line"></span><br><span class="line">keys * #查看所有数据</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/02/07/redis系列-一/1581433802658.png" alt="1581433802658"></p>
-<p><strong>redis安装成功!</strong></p>
+        <h1 id="springboot整合redis-以及redis的简单使用"><a href="#springboot整合redis-以及redis的简单使用" class="headerlink" title="springboot整合redis 以及redis的简单使用"></a>springboot整合redis 以及redis的简单使用</h1><p><img src="/2020/02/12/redis系列-二/redis.jpg" alt></p>
+<p><strong>做一个简单的demo ，redis在springboot中的应用</strong></p>
+<h2 id="代码整合"><a href="#代码整合" class="headerlink" title="代码整合"></a>代码整合</h2><h3 id="pom文件-springboot和redis相关依赖"><a href="#pom文件-springboot和redis相关依赖" class="headerlink" title="pom文件 springboot和redis相关依赖"></a>pom文件 springboot和redis相关依赖</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.1.12.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;demo&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;name&gt;demo&lt;/name&gt;</span><br><span class="line">    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- redis依赖 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- Redis客户端 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;redis.clients&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jedis&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.9.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="application-properties中redis相关配置"><a href="#application-properties中redis相关配置" class="headerlink" title="application.properties中redis相关配置"></a>application.properties中redis相关配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Redis数据库索引（默认为0）</span><br><span class="line">spring.redis.database=<span class="number">0</span></span><br><span class="line"># Redis服务器地址</span><br><span class="line">spring.redis.host=<span class="number">192.168</span>.130.130</span><br><span class="line"># Redis服务器连接端口</span><br><span class="line">spring.redis.port=<span class="number">6379</span></span><br><span class="line"># Redis服务器连接密码</span><br><span class="line">spring.redis.password=myredis</span><br><span class="line"># 连接池最大连接数（使用负值表示没有限制）</span><br><span class="line">spring.activemq.pool.max-connections=<span class="number">5</span></span><br><span class="line"># 连接池最大阻塞等待时间（使用负值表示没有限制）</span><br><span class="line">spring.redis.jedis.pool.max-wait=-<span class="number">1</span></span><br><span class="line"># 连接池中的最大空闲连接</span><br><span class="line">spring.redis.jedis.pool.max-idle=<span class="number">8</span></span><br><span class="line"># 连接池中的最小空闲连接</span><br><span class="line">spring.redis.jedis.pool.min-idle=<span class="number">0</span></span><br><span class="line"># 连接超时时间（毫秒）</span><br><span class="line">spring.redis.timeout=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="config配置类"><a href="#config配置类" class="headerlink" title="config配置类"></a>config配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.config;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.demo.util.RedisUtil;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.host:disabled&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.port:0&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.database:0&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> database;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.redis.password:0&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RedisUtil <span class="title">getRedisUtil</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(host.equals(<span class="string">"disabled"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        RedisUtil redisUtil=<span class="keyword">new</span> RedisUtil();</span><br><span class="line">        redisUtil.initPool(host,port,password,database);</span><br><span class="line">        <span class="keyword">return</span> redisUtil;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="util工具类"><a href="#util工具类" class="headerlink" title="util工具类"></a>util工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPool;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.JedisPoolConfig;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> JedisPool jedisPool;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initPool</span><span class="params">(String host,<span class="keyword">int</span> port,String password,<span class="keyword">int</span> database)</span></span>&#123;</span><br><span class="line">        JedisPoolConfig poolConfig = <span class="keyword">new</span> JedisPoolConfig();</span><br><span class="line">        poolConfig.setMaxTotal(<span class="number">200</span>);</span><br><span class="line">        poolConfig.setMaxIdle(<span class="number">30</span>);</span><br><span class="line">        poolConfig.setBlockWhenExhausted(<span class="keyword">true</span>);</span><br><span class="line">        poolConfig.setMaxWaitMillis(<span class="number">10</span>*<span class="number">1000</span>);</span><br><span class="line">        poolConfig.setTestOnBorrow(<span class="keyword">true</span>);</span><br><span class="line">        jedisPool=<span class="keyword">new</span> JedisPool(poolConfig,host,port,<span class="number">20</span>*<span class="number">1000</span>,password);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Jedis <span class="title">getJedis</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jedisPool.getResource();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.example.demo.util.RedisUtil;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    RedisUtil redisUtil;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Jedis jedis = redisUtil.getJedis();</span><br><span class="line">        jedis.set(<span class="string">"name"</span>,<span class="string">"张三"</span>);</span><br><span class="line">        String aa = jedis.get(<span class="string">"name"</span>);</span><br><span class="line">        System.out.println(aa);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p><strong>控制台输出</strong></p>
+<p><img src="/2020/02/12/redis系列-二/1581601590779.png" alt="1581601590779"></p>
+<p><strong>数据库查询</strong></p>
+<p><img src="/2020/02/12/redis系列-二/1581601642219.png" alt="1581601642219"></p>
+<p><strong>简单的一个demo完成！</strong></p>
 
       
     </div>
@@ -502,12 +461,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/02/07/redis系列-一/">redis系列(一 redis的安装和配置)</a></p>
+  <p><span>本文标题:</span><a href="/2020/02/12/redis系列-二/">redis系列(二 springboot整合redis)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
-  <p><span>发布时间:</span>2020年02月07日 - 22:02</p>
+  <p><span>发布时间:</span>2020年02月12日 - 20:02</p>
   <p><span>最后更新:</span>2020年02月13日 - 21:02</p>
-  <p><span>原始链接:</span><a href="/2020/02/07/redis系列-一/" title="redis系列(一 redis的安装和配置)">http://yuanww.cn/2020/02/07/redis系列-一/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/02/07/redis系列-一/" aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/02/12/redis系列-二/" title="redis系列(二 springboot整合redis)">http://yuanww.cn/2020/02/12/redis系列-二/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/02/12/redis系列-二/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
 </div>
@@ -564,8 +523,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/01/SpringBoot整合FastsDFS/" rel="next" title="SpringBoot整合FastsDFS">
-                <i class="fa fa-chevron-left"></i> SpringBoot整合FastsDFS
+              <a href="/2020/02/07/redis系列-一/" rel="next" title="redis系列(一 redis的安装和配置)">
+                <i class="fa fa-chevron-left"></i> redis系列(一 redis的安装和配置)
               </a>
             
           </div>
@@ -573,10 +532,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/12/redis系列-二/" rel="prev" title="redis系列(二 springboot整合redis)">
-                redis系列(二 springboot整合redis) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -794,7 +749,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis的安装和配置"><span class="nav-number">1.</span> <span class="nav-text">Redis的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">redis简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-优势"><span class="nav-number">1.1.2.</span> <span class="nav-text">Redis 优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">1.2.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译、安装"><span class="nav-number">1.2.3.</span> <span class="nav-text">编译、安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动配置文件"><span class="nav-number">1.3.1.</span> <span class="nav-text">移动配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.3.3.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.4.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#springboot整合redis-以及redis的简单使用"><span class="nav-number">1.</span> <span class="nav-text">springboot整合redis 以及redis的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码整合"><span class="nav-number">1.1.</span> <span class="nav-text">代码整合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom文件-springboot和redis相关依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">pom文件 springboot和redis相关依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application-properties中redis相关配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">application.properties中redis相关配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config配置类"><span class="nav-number">1.1.3.</span> <span class="nav-text">config配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#util工具类"><span class="nav-number">1.1.4.</span> <span class="nav-text">util工具类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试代码"><span class="nav-number">1.2.</span> <span class="nav-text">测试代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试结果"><span class="nav-number">1.2.1.</span> <span class="nav-text">测试结果</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

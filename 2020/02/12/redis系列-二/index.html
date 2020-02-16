@@ -96,21 +96,21 @@
 
 
 
-<meta name="description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
+<meta name="description" content="springboot整合redis 以及redis的简单使用做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis系列(二 springboot整合redis)">
 <meta property="og:url" content="http://yuanww.cn/2020/02/12/redis系列-二/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
+<meta property="og:description" content="springboot整合redis 以及redis的简单使用做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/redis.jpg">
 <meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/1581601590779.png">
 <meta property="og:image" content="http://yuanww.cn/2020/02/12/redis系列-二/1581601642219.png">
-<meta property="og:updated_time" content="2020-02-13T13:54:17.224Z">
+<meta property="og:updated_time" content="2020-02-16T05:53:12.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis系列(二 springboot整合redis)">
-<meta name="twitter:description" content="springboot整合redis 以及redis的简单使用 做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
+<meta name="twitter:description" content="springboot整合redis 以及redis的简单使用做一个简单的demo ，redis在springboot中的应用 代码整合pom文件 springboot和redis相关依赖">
 <meta name="twitter:image" content="http://yuanww.cn/2020/02/12/redis系列-二/redis.jpg">
 
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  825
+                  824
                 </span>
               
 
@@ -433,8 +433,8 @@
       
 
       
-        <h1 id="springboot整合redis-以及redis的简单使用"><a href="#springboot整合redis-以及redis的简单使用" class="headerlink" title="springboot整合redis 以及redis的简单使用"></a>springboot整合redis 以及redis的简单使用</h1><p><img src="/2020/02/12/redis系列-二/redis.jpg" alt></p>
-<p><strong>做一个简单的demo ，redis在springboot中的应用</strong></p>
+        <p><img src="/2020/02/12/redis系列-二/redis.jpg" alt></p>
+<h1 id="springboot整合redis-以及redis的简单使用"><a href="#springboot整合redis-以及redis的简单使用" class="headerlink" title="springboot整合redis 以及redis的简单使用"></a>springboot整合redis 以及redis的简单使用</h1><p><strong>做一个简单的demo ，redis在springboot中的应用</strong></p>
 <h2 id="代码整合"><a href="#代码整合" class="headerlink" title="代码整合"></a>代码整合</h2><h3 id="pom文件-springboot和redis相关依赖"><a href="#pom文件-springboot和redis相关依赖" class="headerlink" title="pom文件 springboot和redis相关依赖"></a>pom文件 springboot和redis相关依赖</h3><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.1.12.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line">    &lt;groupId&gt;com.example&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;demo&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;name&gt;demo&lt;/name&gt;</span><br><span class="line">    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;java.version&gt;1.8&lt;/java.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- redis依赖 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;!-- Redis客户端 --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;redis.clients&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jedis&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.9.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="application-properties中redis相关配置"><a href="#application-properties中redis相关配置" class="headerlink" title="application.properties中redis相关配置"></a>application.properties中redis相关配置</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Redis数据库索引（默认为0）</span><br><span class="line">spring.redis.database=<span class="number">0</span></span><br><span class="line"># Redis服务器地址</span><br><span class="line">spring.redis.host=<span class="number">192.168</span>.130.130</span><br><span class="line"># Redis服务器连接端口</span><br><span class="line">spring.redis.port=<span class="number">6379</span></span><br><span class="line"># Redis服务器连接密码</span><br><span class="line">spring.redis.password=myredis</span><br><span class="line"># 连接池最大连接数（使用负值表示没有限制）</span><br><span class="line">spring.activemq.pool.max-connections=<span class="number">5</span></span><br><span class="line"># 连接池最大阻塞等待时间（使用负值表示没有限制）</span><br><span class="line">spring.redis.jedis.pool.max-wait=-<span class="number">1</span></span><br><span class="line"># 连接池中的最大空闲连接</span><br><span class="line">spring.redis.jedis.pool.max-idle=<span class="number">8</span></span><br><span class="line"># 连接池中的最小空闲连接</span><br><span class="line">spring.redis.jedis.pool.min-idle=<span class="number">0</span></span><br><span class="line"># 连接超时时间（毫秒）</span><br><span class="line">spring.redis.timeout=<span class="number">0</span></span><br></pre></td></tr></table></figure>
@@ -464,7 +464,7 @@
   <p><span>本文标题:</span><a href="/2020/02/12/redis系列-二/">redis系列(二 springboot整合redis)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
   <p><span>发布时间:</span>2020年02月12日 - 20:02</p>
-  <p><span>最后更新:</span>2020年02月13日 - 21:02</p>
+  <p><span>最后更新:</span>2020年02月16日 - 13:02</p>
   <p><span>原始链接:</span><a href="/2020/02/12/redis系列-二/" title="redis系列(二 springboot整合redis)">http://yuanww.cn/2020/02/12/redis系列-二/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/02/12/redis系列-二/" aria-label="复制成功！"></i></span>
   </p>
@@ -532,6 +532,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/16/jenkins系列-一/" rel="prev" title="jenkins系列（一 jenkins的安装和启动）">
+                jenkins系列（一 jenkins的安装和启动） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -651,7 +655,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -662,7 +666,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -673,7 +677,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -783,7 +787,7 @@
     
       <span class="post-meta-item-text">站点字数总计&#58;</span>
     
-    <span title="站点字数总计">14k</span>
+    <span title="站点字数总计">14.6k</span>
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <span class="post-meta-divider">|</span>

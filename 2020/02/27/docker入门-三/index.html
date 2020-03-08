@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="linux,bug,">
+  <meta name="keywords" content="docker,">
 
 
 
@@ -96,18 +96,28 @@
 
 
 
-<meta name="description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
-<meta name="keywords" content="linux,bug">
+<meta name="description" content="使用docker部署springboot项目 前言将Docker通过插件的方式集成到SpringBoot中，然后通过Maven命令根据项目中的Dockerfile自动生成Docker镜像，同时将镜像推送到远程docker仓库中，然后在服务器通过pull镜像启动Docker来启动SpringBoot项目，并访问接口。">
+<meta name="keywords" content="docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux添加开机启动后失效问题">
-<meta property="og:url" content="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/index.html">
+<meta property="og:title" content="docker入门(三)">
+<meta property="og:url" content="http://yuanww.cn/2020/02/27/docker入门-三/index.html">
 <meta property="og:site_name" content="WhiteWater">
-<meta property="og:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
+<meta property="og:description" content="使用docker部署springboot项目 前言将Docker通过插件的方式集成到SpringBoot中，然后通过Maven命令根据项目中的Dockerfile自动生成Docker镜像，同时将镜像推送到远程docker仓库中，然后在服务器通过pull镜像启动Docker来启动SpringBoot项目，并访问接口。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-15T14:35:14.827Z">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/docker.jpg">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583661546032.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583661139999.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583661422497.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583661451294.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583663474460.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583662850195.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583665034066.png">
+<meta property="og:image" content="http://yuanww.cn/2020/02/27/docker入门-三/1583664984673.png">
+<meta property="og:updated_time" content="2020-03-08T10:59:16.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux添加开机启动后失效问题">
-<meta name="twitter:description" content="记一次linux添加开机启动后失效问题今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中， 于是输入命令 vim /etc/rc.local 在最后一行添加 /opt/zookeeper-3.4.14/bin/zkServer.sh start 然后 reboot 重启 重启之后 输入命令zkServer.sh stats发现 zookeep">
+<meta name="twitter:title" content="docker入门(三)">
+<meta name="twitter:description" content="使用docker部署springboot项目 前言将Docker通过插件的方式集成到SpringBoot中，然后通过Maven命令根据项目中的Dockerfile自动生成Docker镜像，同时将镜像推送到远程docker仓库中，然后在服务器通过pull镜像启动Docker来启动SpringBoot项目，并访问接口。">
+<meta name="twitter:image" content="http://yuanww.cn/2020/02/27/docker入门-三/docker.jpg">
 
 
 
@@ -137,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/">
+  <link rel="canonical" href="http://yuanww.cn/2020/02/27/docker入门-三/">
 
 
 
 
 
-  <title>linux添加开机启动后失效问题 | WhiteWater</title>
+  <title>docker入门(三) | WhiteWater</title>
   
 
 
@@ -290,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/">
+    <link itemprop="mainEntityOfPage" href="http://yuanww.cn/2020/02/27/docker入门-三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ctrl">
@@ -307,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux添加开机启动后失效问题</h1>
+          <h1 class="post-title" itemprop="name headline">docker入门(三)</h1>
         
 
         <div class="post-meta">
@@ -319,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-15T21:17:48+08:00">
-                2020-01-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T23:28:08+08:00">
+                2020-02-27
               </time>
             
 
@@ -342,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/bug/" itemprop="url" rel="index">
-                    <span itemprop="name">bug</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
 
@@ -360,8 +370,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/15/linux添加开机启动后失效问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/15/linux添加开机启动后失效问题/" itemprop="commentCount"></span>
+                <a href="/2020/02/27/docker入门-三/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/docker入门-三/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,7 +379,7 @@
 
           
           
-             <span id="/2020/01/15/linux添加开机启动后失效问题/" class="leancloud_visitors" data-flag-title="linux添加开机启动后失效问题">
+             <span id="/2020/02/27/docker入门-三/" class="leancloud_visitors" data-flag-title="docker入门(三)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -392,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  577
+                  777
                 </span>
               
 
@@ -408,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -429,31 +439,30 @@
       
 
       
-        <h3 id="记一次linux添加开机启动后失效问题"><a href="#记一次linux添加开机启动后失效问题" class="headerlink" title="记一次linux添加开机启动后失效问题"></a>记一次linux添加开机启动后失效问题</h3><p>今天在linux系统上装了zookeeper，安装配置启动成功之后，顺便把zookeeper加到开机自启中，</p>
-<p>于是输入命令 <code>vim /etc/rc.local</code> 在最后一行添加 <code>/opt/zookeeper-3.4.14/bin/zkServer.sh start</code></p>
-<p>然后 <code>reboot</code> 重启</p>
-<p>重启之后 输入命令<code>zkServer.sh stats</code>发现 zookeeper并没有启动</p>
+        <h1 id="使用docker部署springboot项目"><a href="#使用docker部署springboot项目" class="headerlink" title="使用docker部署springboot项目"></a>使用docker部署springboot项目</h1><p><img src="/2020/02/27/docker入门-三/docker.jpg" alt></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>将Docker通过插件的方式集成到SpringBoot中，然后通过Maven命令根据项目中的Dockerfile自动生成Docker镜像，同时将镜像推送到远程docker仓库中，然后在服务器通过pull镜像启动Docker来启动SpringBoot项目，并访问接口。</p>
 <a id="more"></a>
-<p>然后我查看之前添加到开机自启的服务tomcat和nginx也没有启动成功 在添加zookeeper之前是没有问题的</p>
-<p>怎么回事呢 于是我去百度搜索 linux、rc.loacl、开机自启失败等有关文章之后 </p>
-<p>发现大部分文章都在说开机自启失败是因为<code>/etc/rc.loacl</code>没有权限 </p>
-<p>查看/etc/rc.loacl权限 正常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /etc/rc.local</span><br><span class="line">lrwxrwxrwx. 1 root root 13 1月  10 09:28 /etc/rc.local -&gt; rc.d/rc.local</span><br></pre></td></tr></table></figure></p>
-<p>查看/etc/rc.d/rc.local权限 正常</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ll /etc/rc.d/rc.local</span><br><span class="line">-rwxrwxrwx. 1 root root 652 1月  15 14:48 /etc/rc.d/rc.local</span><br></pre></td></tr></table></figure>
-<p>我这个应该不是权限问题</p>
-<p>于是我去查看开机启动日志  <code>/var/log/message</code> 发现了报错日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localhost systemd: Failed at step EXEC spawning /etc/rc.d/rc.local: Exec format error</span><br><span class="line">localhost systemd: rc-local.service: control process exited, code=exited status=203</span><br><span class="line">localhost systemd: Failed to start /etc/rc.d/rc.local Compatibility.</span><br><span class="line">localhost systemd: Unit rc-local.service entered failed state.</span><br><span class="line">localhost systemd: rc-local.service failed.</span><br></pre></td></tr></table></figure></p>
-<p>这里说 执行/etc/rc.d/rc.时出错 Exec格式错误  应该就是rc.local文件的问题 并且还说明了错误码</p>
-<p>我接着去搜索 <code>code=exited status=203</code></p>
-<p>发现原因： systemctl执行脚本时需要知道脚本的解释器</p>
-<p>这有是关于linux运行脚本的知识了 大概了解一下</p>
-<p>#!/bin/bash是指此脚本使用/bin/bash来解释执行。 每个脚本开头都必须使用”#!”</p>
-<p>于是重新 <code>vim /etc/rc.local</code>突然发现了问题所在</p>
-<p>第一行居然是空行（emmm，可能是我在编辑的时候多按了一下回车吧 ）</p>
-<p>把第一行删除   #!/bin/bash 作为首行 然后保存退出 重启</p>
-<p>输入 <code>zkServer.sh stats</code>发现启动成功 查看tomcat nginx 进程启动成功</p>
-<p>ok 问题解决完毕！</p>
-<p>因为一个空行引发的惨案  还是对linux的不熟悉导致的 太难了 还得多学习学习</p>
-
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><blockquote>
+<p>jdk</p>
+<p>maven</p>
+<p>docker</p>
+</blockquote>
+<h3 id="springboot项目"><a href="#springboot项目" class="headerlink" title="springboot项目"></a>springboot项目</h3><h4 id="pom-xml-增加docker依赖"><a href="#pom-xml-增加docker依赖" class="headerlink" title="pom.xml 增加docker依赖"></a>pom.xml 增加docker依赖</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;properties&gt;</span><br><span class="line">	&lt;!-- docker service --&gt;</span><br><span class="line">	&lt;docker.registryUrl&gt;http:<span class="comment">//101.xxx.xxx.167:2375 &lt;/docker.registryUrl&gt;					</span></span><br><span class="line">        &lt;docker.imageName&gt;101.xxx.xxx.167/library/$&#123;project.artifactId&#125;:1.0&lt;/docker.imageName&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">        	&lt;plugin&gt;</span><br><span class="line">			&lt;groupId&gt;com.spotify&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.1.0&lt;/version&gt;</span><br><span class="line">			&lt;configuration&gt;</span><br><span class="line">				&lt;!-- 连接远程仓库 --&gt;</span><br><span class="line">				&lt;serverId&gt;docker-harbor&lt;/serverId&gt;</span><br><span class="line">				&lt;!-- 远程仓库地址 --&gt;</span><br><span class="line">				&lt;registryUrl&gt;$&#123;docker.registryUrl&#125;&lt;/registryUrl&gt;</span><br><span class="line">				&lt;dockerHost&gt;$&#123;docker.registryUrl&#125;&lt;/dockerHost&gt;</span><br><span class="line">				&lt;!-- 这里是最终生成的docker镜像名称 注意imageName一定要是符合正则[a-z0-<span class="number">9</span>-_.]的，否则构建不会成功 --&gt;</span><br><span class="line">				&lt;imageName&gt;$&#123;docker.imageName&#125;&lt;/imageName&gt;</span><br><span class="line">				&lt;dockerDirectory&gt;$&#123;project.basedir&#125;/bin/docker&lt;/dockerDirectory&gt;</span><br><span class="line">				&lt;!-- resources的内容会复制  dockerDirectory (也就是构建上下文)中 --&gt;</span><br><span class="line">       			        &lt;resources&gt;</span><br><span class="line">					&lt;resource&gt;</span><br><span class="line">						&lt;targetPath&gt;/&lt;/targetPath&gt;</span><br><span class="line">						&lt;directory&gt;$&#123;project.build.directory&#125;&lt;/directory&gt;</span><br><span class="line">						&lt;include&gt;web.war&lt;/include&gt;</span><br><span class="line">					&lt;/resource&gt;</span><br><span class="line">				&lt;/resources&gt;</span><br><span class="line">				&lt;!-- 覆盖镜像 --&gt;</span><br><span class="line">				&lt;forceTags&gt;true&lt;/forceTags&gt;</span><br><span class="line">				&lt;!--  推送镜像 --&gt;</span><br><span class="line">				&lt;pushImage&gt;true&lt;/pushImage&gt;</span><br><span class="line">			&lt;/configuration&gt;</span><br><span class="line">			&lt;!-- 项目<span class="keyword">package</span>时会执行docker build 命令 --&gt;</span><br><span class="line">			&lt;executions&gt;</span><br><span class="line">				&lt;execution&gt;</span><br><span class="line">					&lt;id&gt;build-image&lt;/id&gt;</span><br><span class="line">					&lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">					&lt;goals&gt;</span><br><span class="line">						&lt;goal&gt;build&lt;/goal&gt;</span><br><span class="line">					&lt;/goals&gt;</span><br><span class="line">				&lt;/execution&gt;</span><br><span class="line">			&lt;/executions&gt;</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">	&lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="新增-Dockerfile-文件"><a href="#新增-Dockerfile-文件" class="headerlink" title="新增 Dockerfile 文件"></a>新增 Dockerfile 文件</h4><p>在项目的根目录下新增bin/docker/Dockerfile文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">FROM openjdk:<span class="number">8</span>-jdk-alpine</span><br><span class="line">MAINTAINER <span class="number">123456</span><span class="meta">@qq</span>.com</span><br><span class="line">ENV TZ <span class="string">"Asia/Shanghai"</span></span><br><span class="line">ENV LANG C.UTF-<span class="number">8</span></span><br><span class="line">VOLUME /tmp</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">#添加打包好的war包</span><br><span class="line">ADD web.war .</span><br><span class="line">RUN jar -xvf web.war</span><br><span class="line"></span><br><span class="line">WORKDIR /app/WEB-INF</span><br><span class="line">ENV JAVA_OPTS <span class="string">"-Xms256m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m"</span></span><br><span class="line">ENV JAVA_OPTS <span class="string">"$JAVA_OPTS -Dspring.profiles.active=prod"</span></span><br><span class="line"></span><br><span class="line"># 添加项目配置文件    </span><br><span class="line">ADD application-prod.yml ./classes/config</span><br><span class="line"></span><br><span class="line">ENTRYPOINT java -cp /app $JAVA_OPTS org.springframework.boot.loader.WarLauncher</span><br><span class="line"></span><br><span class="line"># 项目映射端口</span><br><span class="line">EXPOSE <span class="number">8086</span></span><br></pre></td></tr></table></figure>
+<h2 id="docker远程仓库"><a href="#docker远程仓库" class="headerlink" title="docker远程仓库"></a>docker远程仓库</h2><h4 id="docker私服仓库harbor"><a href="#docker私服仓库harbor" class="headerlink" title="docker私服仓库harbor"></a>docker私服仓库harbor</h4><p>Harbor是构建企业级私有docker镜像的仓库的开源解决方案，它是Docker Registry的更高级封装，从而获得了更加广泛的应用，这些新的企业级特性包括：管理用户界面，基于角色的访问控制 ，AD/LDAP集成以及审计日志等，足以满足基本企业需求。</p>
+<p>hardor的安装可自行百度 本文已经安装好hardor </p>
+<p><img src="/2020/02/27/docker入门-三/1583661546032.png" alt="1583661546032"></p>
+<h4 id="maven-设置-setting"><a href="#maven-设置-setting" class="headerlink" title="maven 设置 setting"></a>maven 设置 setting</h4><p>在maven的setting文件中找到server节点加入Harbor的服务信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;server&gt;</span><br><span class="line">      &lt;!--maven的pom中可以根据这个id找到这个server节点的配置--&gt;  </span><br><span class="line">      &lt;id&gt;docker-harbor&lt;/id&gt;</span><br><span class="line">      &lt;username&gt;admin&lt;/username&gt;</span><br><span class="line">      &lt;password&gt;password&lt;/password&gt;</span><br><span class="line">	  &lt;configuration&gt;</span><br><span class="line">       &lt;email&gt;somebody@mail.com&lt;/email&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">&lt;/server&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="打包推送镜像"><a href="#打包推送镜像" class="headerlink" title="打包推送镜像"></a>打包推送镜像</h2><h3 id="执行package命令"><a href="#执行package命令" class="headerlink" title="执行package命令"></a>执行package命令</h3><p><img src="/2020/02/27/docker入门-三/1583661139999.png" alt="1583661139999"></p>
+<h3 id="bulid镜像"><a href="#bulid镜像" class="headerlink" title="bulid镜像"></a>bulid镜像</h3><p><img src="/2020/02/27/docker入门-三/1583661422497.png" alt="1583661422497"></p>
+<h3 id="push镜像"><a href="#push镜像" class="headerlink" title="push镜像"></a>push镜像</h3><p><img src="/2020/02/27/docker入门-三/1583661451294.png" alt="1583661451294"></p>
+<h3 id="在docker服务器端查看镜像"><a href="#在docker服务器端查看镜像" class="headerlink" title="在docker服务器端查看镜像"></a>在docker服务器端查看镜像</h3><p><img src="/2020/02/27/docker入门-三/1583663474460.png" alt="1583663474460"></p>
+<h3 id="查看镜像仓库"><a href="#查看镜像仓库" class="headerlink" title="查看镜像仓库"></a>查看镜像仓库</h3><p><img src="/2020/02/27/docker入门-三/1583662850195.png" alt="1583662850195"></p>
+<h3 id="启动镜像"><a href="#启动镜像" class="headerlink" title="启动镜像"></a>启动镜像</h3><p><img src="/2020/02/27/docker入门-三/1583665034066.png" alt="1583665034066"></p>
+<h3 id="访问项目"><a href="#访问项目" class="headerlink" title="访问项目"></a>访问项目</h3><p><img src="/2020/02/27/docker入门-三/1583664984673.png" alt="1583664984673"></p>
+<h2 id="整合结束"><a href="#整合结束" class="headerlink" title="整合结束"></a>整合结束</h2>
       
     </div>
     
@@ -468,12 +477,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/01/15/linux添加开机启动后失效问题/">linux添加开机启动后失效问题</a></p>
+  <p><span>本文标题:</span><a href="/2020/02/27/docker入门-三/">docker入门(三)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ctrl 的个人博客">ctrl</a></p>
-  <p><span>发布时间:</span>2020年01月15日 - 21:01</p>
-  <p><span>最后更新:</span>2020年01月15日 - 22:01</p>
-  <p><span>原始链接:</span><a href="/2020/01/15/linux添加开机启动后失效问题/" title="linux添加开机启动后失效问题">http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/01/15/linux添加开机启动后失效问题/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年02月27日 - 23:02</p>
+  <p><span>最后更新:</span>2020年03月08日 - 18:03</p>
+  <p><span>原始链接:</span><a href="/2020/02/27/docker入门-三/" title="docker入门(三)">http://yuanww.cn/2020/02/27/docker入门-三/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yuanww.cn/2020/02/27/docker入门-三/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
 </div>
@@ -517,9 +526,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
-          
-            <a href="/tags/bug/" rel="tag"><i class="fa fa-tag"></i> bug</a>
+            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
           
         </div>
       
@@ -532,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/15/linux下安装和配置zookeeper/" rel="next" title="linux下安装和配置zookeeper">
-                <i class="fa fa-chevron-left"></i> linux下安装和配置zookeeper
+              <a href="/2020/02/24/docker入门-二/" rel="next" title="docker入门(二) docker命令使用">
+                <i class="fa fa-chevron-left"></i> docker入门(二) docker命令使用
               </a>
             
           </div>
@@ -541,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/19/dubbo系列-三/" rel="prev" title="dubbo系列(三 springboot整合dubbo)">
-                dubbo系列(三 springboot整合dubbo) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -762,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#记一次linux添加开机启动后失效问题"><span class="nav-number">1.</span> <span class="nav-text">记一次linux添加开机启动后失效问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用docker部署springboot项目"><span class="nav-number">1.</span> <span class="nav-text">使用docker部署springboot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备环境"><span class="nav-number">1.2.1.</span> <span class="nav-text">准备环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#springboot项目"><span class="nav-number">1.2.2.</span> <span class="nav-text">springboot项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pom-xml-增加docker依赖"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">pom.xml 增加docker依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新增-Dockerfile-文件"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">新增 Dockerfile 文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker远程仓库"><span class="nav-number">1.3.</span> <span class="nav-text">docker远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker私服仓库harbor"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">docker私服仓库harbor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-设置-setting"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">maven 设置 setting</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包推送镜像"><span class="nav-number">1.4.</span> <span class="nav-text">打包推送镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行package命令"><span class="nav-number">1.4.1.</span> <span class="nav-text">执行package命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bulid镜像"><span class="nav-number">1.4.2.</span> <span class="nav-text">bulid镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push镜像"><span class="nav-number">1.4.3.</span> <span class="nav-text">push镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在docker服务器端查看镜像"><span class="nav-number">1.4.4.</span> <span class="nav-text">在docker服务器端查看镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看镜像仓库"><span class="nav-number">1.4.5.</span> <span class="nav-text">查看镜像仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动镜像"><span class="nav-number">1.4.6.</span> <span class="nav-text">启动镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问项目"><span class="nav-number">1.4.7.</span> <span class="nav-text">访问项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合结束"><span class="nav-number">1.5.</span> <span class="nav-text">整合结束</span></a></li></ol></div>
             
 
           </div>
